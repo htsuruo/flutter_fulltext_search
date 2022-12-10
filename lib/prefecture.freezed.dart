@@ -20,7 +20,6 @@ Prefecture _$PrefectureFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Prefecture {
-// ignore: invalid_annotation_target
   @JsonKey(name: 'objectID')
   String get objectId => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
@@ -150,7 +149,6 @@ class _$_Prefecture extends _Prefecture {
   factory _$_Prefecture.fromJson(Map<String, dynamic> json) =>
       _$$_PrefectureFromJson(json);
 
-// ignore: invalid_annotation_target
   @override
   @JsonKey(name: 'objectID')
   final String objectId;
@@ -208,7 +206,7 @@ abstract class _Prefecture extends Prefecture {
   factory _Prefecture.fromJson(Map<String, dynamic> json) =
       _$_Prefecture.fromJson;
 
-  @override // ignore: invalid_annotation_target
+  @override
   @JsonKey(name: 'objectID')
   String get objectId;
   @override

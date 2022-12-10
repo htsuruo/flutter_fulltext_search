@@ -11,7 +11,6 @@ class PrefecturePage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final searchResults = ref.watch(searchProvider);
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
