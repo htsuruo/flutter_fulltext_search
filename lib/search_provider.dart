@@ -8,7 +8,7 @@ import 'search_bar/search_bar_provider.dart';
 
 const _algolia = Algolia.init(
   applicationId: Secret.algoliaApplicationId,
-  apiKey: Secret.algoliaApplicationId,
+  apiKey: Secret.algoliaApiKey,
 );
 
 final searchProvider = FutureProvider<List<Prefecture>>((ref) async {

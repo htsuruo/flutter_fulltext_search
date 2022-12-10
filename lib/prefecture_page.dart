@@ -21,15 +21,15 @@ class PrefecturePage extends ConsumerWidget {
             padding: EdgeInsets.all(16),
             child: SearchBar(),
           ),
-          ref.watch(searchProvider).when(
-                error: (error, stackTrace) =>
-                    Center(child: Text('error: ${error.toString()}')),
-                loading: () => const Center(
-                  child: CircularProgressIndicator(),
-                ),
-                data: (prefectures) {
-                  return Expanded(
-                    child: ListView.builder(
+          Expanded(
+            child: ref.watch(searchProvider).when(
+                  error: (error, stackTrace) =>
+                      Center(child: Text('error: ${error.toString()}')),
+                  loading: () => const Center(
+                    child: CircularProgressIndicator(),
+                  ),
+                  data: (prefectures) {
+                    return ListView.builder(
                       itemCount: prefectures.length,
                       itemBuilder: (context, index) {
                         final prefecture = prefectures[index];
@@ -41,10 +41,10 @@ class PrefecturePage extends ConsumerWidget {
                           trailing: Text(prefecture.objectId),
                         );
                       },
-                    ),
-                  );
-                },
-              ),
+                    );
+                  },
+                ),
+          ),
         ],
       ),
     );
