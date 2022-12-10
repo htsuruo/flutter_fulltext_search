@@ -6,15 +6,24 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'search_bar/search_bar_provider.dart';
 
+final searchProvider = FutureProvider<List<Prefecture>>(
+  (ref) => throw UnimplementedError(),
+);
+
 const _algolia = Algolia.init(
   applicationId: Secret.algoliaApplicationId,
   apiKey: Secret.algoliaApiKey,
 );
 
-final searchProvider = FutureProvider<List<Prefecture>>((ref) async {
+final algoliaProvider = FutureProvider<List<Prefecture>>((ref) async {
   final word = ref.watch(searchBarProvider);
   final query = _algolia.instance.index('prefectures_index').query(word);
   final snapshot = await query.getObjects();
   logger.info('Hit count: ${snapshot.nbHits}');
   return snapshot.hits.map((hit) => Prefecture.fromJson(hit.data)).toList();
+});
+
+final meilisearchProvider = FutureProvider<List<Prefecture>>((ref) async {
+  // TODO(tsuruoka): 実装
+  return [];
 });
