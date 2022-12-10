@@ -32,7 +32,6 @@ dependencies:
   meilisearch: ^0.6.0
   riverpod: ^2.1.1
   simple_logger: ^1.9.0+1
-  tsuruo_kit: ^0.0.13
 
 dev_dependencies:
   flutter_test:
