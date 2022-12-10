@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_fulltext_search/search_page.dart';
+import 'package:flutter_fulltext_search/prefecture_page.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 void main() {
@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.green,
         dividerTheme: const DividerThemeData(space: 0),
       ),
-      home: const SearchPage(title: _title),
+      home: const PrefecturePage(title: _title),
     );
   }
 }

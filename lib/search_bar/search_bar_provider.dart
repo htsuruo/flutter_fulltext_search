@@ -6,7 +6,7 @@ final searchBarProvider = NotifierProvider<SearchBarNotifier, String>(
   SearchBarNotifier.new,
 );
 
-const _initialQuery = 'flutter';
+const _initialQuery = '';
 
 class SearchBarNotifier extends Notifier<String> {
   @override
