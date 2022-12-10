@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_fulltext_search/algolia_page.dart';
+import 'package:flutter_fulltext_search/meilisearch_page.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -47,7 +49,11 @@ class _HomePage extends StatelessWidget {
               url:
                   'https://extensions.dev/extensions/algolia/firestore-algolia-search',
             ),
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).push<void>(
+                MaterialPageRoute(builder: (context) => const AlgoliaPage()),
+              );
+            },
           ),
           const Divider(),
           ListTile(
@@ -57,7 +63,13 @@ class _HomePage extends StatelessWidget {
               url:
                   'https://extensions.dev/extensions/meilisearch/firestore-meilisearch',
             ),
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).push<void>(
+                MaterialPageRoute(
+                  builder: (context) => const MeilisearchPage(),
+                ),
+              );
+            },
           )
         ],
       ),
