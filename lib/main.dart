@@ -59,7 +59,7 @@ class _HomePage extends StatelessWidget {
                       // FutureOrと解釈されてしまいoverideできない
                       // searchProvider.overrideWith((ref) => algoliaProvider),
                     ],
-                    child: const PrefecturePage(title: 'Meilisearch'),
+                    child: const PrefecturePage(title: 'Algolia'),
                   ),
                 ),
               );
@@ -80,7 +80,7 @@ class _HomePage extends StatelessWidget {
                     overrides: [
                       searchProvider.overrideWithProvider(meilisearchProvider),
                     ],
-                    child: const PrefecturePage(title: 'Algolia'),
+                    child: const PrefecturePage(title: 'Meilisearch'),
                   ),
                 ),
               );
