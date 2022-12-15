@@ -2,7 +2,7 @@ import 'package:algolia/algolia.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_fulltext_search/component/prefecture_tile.dart';
 import 'package:flutter_fulltext_search/component/search_count_text.dart';
-import 'package:flutter_fulltext_search/secret.dart';
+import 'package:flutter_fulltext_search/env.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 
@@ -11,8 +11,8 @@ import 'component/search_bar/search_bar_provider.dart';
 import 'prefecture.dart';
 
 const _algolia = Algolia.init(
-  applicationId: Secret.algoliaApplicationId,
-  apiKey: Secret.algoliaApiKey,
+  applicationId: Env.algoliaApplicationId,
+  apiKey: Env.algoliaApiKey,
 );
 
 final _searchProvider = FutureProvider<AlgoliaQuerySnapshot>((ref) {

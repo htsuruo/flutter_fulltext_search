@@ -1,16 +1,21 @@
 # flutter_fulltext_search
 
-A new Flutter project.
+Full-text search playground with Flutter and Firestore.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+APIキーを参照するため、以下の `env.dart` を作成し `\lib` に配置してください（.gitignore対象です）。
 
-A few resources to get you started if this is your first Flutter project:
+```dart: env.dart
+abstract class Env {
+  static const algoliaApplicationId = '[YOUR_ALGOLIA_APPLICATION_ID]';
+  static const algoliaApiKey = '[YOUR_ALGOLIA_API_KEY]';
+  static const meilisearchHost = '[YOUR_MEILISEARCH_HOST]';
+  static const meilisearchApiKey = '[YOUR_MEILISEARCH_API_KEY]';
+}
+```
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Meilisearch
+本レポジトリのMeilisearchは自前デプロイ前提のため、動作させるには別途デプロイ作業が必要です。
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+[Quick start | Meilisearch Documentation v0.30](https://docs.meilisearch.com/learn/getting_started/quick_start.html#setup-and-installation)

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_fulltext_search/component/prefecture_tile.dart';
 import 'package:flutter_fulltext_search/component/search_count_text.dart';
-import 'package:flutter_fulltext_search/secret.dart';
+import 'package:flutter_fulltext_search/env.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 import 'package:meilisearch/meilisearch.dart';
@@ -11,8 +11,8 @@ import 'component/search_bar/search_bar_provider.dart';
 import 'prefecture.dart';
 
 final _meilisearchClient = MeiliSearchClient(
-  'http://34.84.205.58',
-  Secret.meilisearchApiKey,
+  Env.meilisearchHost,
+  Env.meilisearchApiKey,
 );
 
 final _searchProvider = FutureProvider<SearchResult>((ref) {
