@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_fulltext_search/algolia_page.dart';
 import 'package:flutter_fulltext_search/meilisearch_page.dart';
-import 'package:flutter_fulltext_search/search_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:url_launcher/url_launcher.dart';
-
-import 'prefecture_page.dart';
 
 void main() {
   runApp(
@@ -55,14 +53,7 @@ class _HomePage extends StatelessWidget {
             onTap: () {
               Navigator.of(context).push<void>(
                 MaterialPageRoute(
-                  builder: (context) => ProviderScope(
-                    overrides: [
-                      searchProvider.overrideWithProvider(algoliaProvider),
-                      // FutureOrと解釈されてしまいoverideできない
-                      // searchProvider.overrideWith((ref) => algoliaProvider),
-                    ],
-                    child: const PrefecturePage(title: 'Algolia'),
-                  ),
+                  builder: (context) => const AlgoliaPage(),
                 ),
               );
             },

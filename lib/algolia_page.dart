@@ -1,39 +1,39 @@
+import 'package:algolia/algolia.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_fulltext_search/component/prefecture_tile.dart';
 import 'package:flutter_fulltext_search/component/search_count_text.dart';
 import 'package:flutter_fulltext_search/secret.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
-import 'package:meilisearch/meilisearch.dart';
 
 import 'component/search_bar/search_bar.dart';
 import 'component/search_bar/search_bar_provider.dart';
 import 'prefecture.dart';
 
-final _meilisearchClient = MeiliSearchClient(
-  'http://34.84.205.58',
-  Secret.meilisearchApiKey,
+const _algolia = Algolia.init(
+  applicationId: Secret.algoliaApplicationId,
+  apiKey: Secret.algoliaApiKey,
 );
 
-final _searchProvider = FutureProvider<SearchResult>((ref) {
+final _searchProvider = FutureProvider<AlgoliaQuerySnapshot>((ref) {
   final word = ref.watch(searchBarProvider);
-  final index = _meilisearchClient.index('prefectures');
-  return index.search(word);
+  final query = _algolia.instance.index('prefectures_index').query(word);
+  return query.getObjects();
 });
 
 final _searchCountProvider = FutureProvider<int?>(
-  (ref) => ref.watch(_searchProvider.future).then((s) => s.estimatedTotalHits),
+  (ref) => ref.watch(_searchProvider.future).then((s) => s.nbHits),
 );
 
-class MeilisearchPage extends ConsumerWidget {
-  const MeilisearchPage({super.key});
+class AlgoliaPage extends ConsumerWidget {
+  const AlgoliaPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     const horizontalPadding = EdgeInsets.symmetric(horizontal: 16);
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Meilisearch'),
+        title: const Text('Algolia'),
       ),
       body: Column(
         children: [
@@ -59,13 +59,14 @@ class MeilisearchPage extends ConsumerWidget {
               child: ref.watch(_searchProvider).when(
                     error: (error, stackTrace) => Text(error.toString()),
                     loading: CircularProgressIndicator.new,
-                    data: (result) {
-                      final hits = result.hits;
-                      if (hits == null || hits.isEmpty) {
+                    data: (snapshot) {
+                      final hits = snapshot.hits;
+                      if (hits.isEmpty) {
                         return const Text('Not Found');
                       }
-                      final prefectures =
-                          hits.map(Prefecture.fromJson).toList();
+                      final prefectures = snapshot.hits
+                          .map((hit) => Prefecture.fromJson(hit.data))
+                          .toList();
                       return ListView.builder(
                         itemCount: prefectures.length,
                         itemBuilder: (context, index) {
