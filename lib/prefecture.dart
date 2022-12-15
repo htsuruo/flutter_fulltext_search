@@ -6,7 +6,6 @@ part 'prefecture.g.dart';
 @freezed
 class Prefecture with _$Prefecture {
   const factory Prefecture({
-    @JsonKey(name: 'objectID') required String objectId,
     required String name,
     required String hiragana,
     required String roman,

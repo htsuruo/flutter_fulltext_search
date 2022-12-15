@@ -10,7 +10,6 @@ part of 'prefecture.dart';
 
 _$_Prefecture _$$_PrefectureFromJson(Map<String, dynamic> json) =>
     _$_Prefecture(
-      objectId: json['objectID'] as String,
       name: json['name'] as String,
       hiragana: json['hiragana'] as String,
       roman: json['roman'] as String,
@@ -18,7 +17,6 @@ _$_Prefecture _$$_PrefectureFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$_PrefectureToJson(_$_Prefecture instance) =>
     <String, dynamic>{
-      'objectID': instance.objectId,
       'name': instance.name,
       'hiragana': instance.hiragana,
       'roman': instance.roman,

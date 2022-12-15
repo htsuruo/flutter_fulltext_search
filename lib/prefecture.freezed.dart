@@ -20,8 +20,6 @@ Prefecture _$PrefectureFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Prefecture {
-  @JsonKey(name: 'objectID')
-  String get objectId => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get hiragana => throw _privateConstructorUsedError;
   String get roman => throw _privateConstructorUsedError;
@@ -38,11 +36,7 @@ abstract class $PrefectureCopyWith<$Res> {
           Prefecture value, $Res Function(Prefecture) then) =
       _$PrefectureCopyWithImpl<$Res, Prefecture>;
   @useResult
-  $Res call(
-      {@JsonKey(name: 'objectID') String objectId,
-      String name,
-      String hiragana,
-      String roman});
+  $Res call({String name, String hiragana, String roman});
 }
 
 /// @nodoc
@@ -58,16 +52,11 @@ class _$PrefectureCopyWithImpl<$Res, $Val extends Prefecture>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? objectId = null,
     Object? name = null,
     Object? hiragana = null,
     Object? roman = null,
   }) {
     return _then(_value.copyWith(
-      objectId: null == objectId
-          ? _value.objectId
-          : objectId // ignore: cast_nullable_to_non_nullable
-              as String,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -92,11 +81,7 @@ abstract class _$$_PrefectureCopyWith<$Res>
       __$$_PrefectureCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {@JsonKey(name: 'objectID') String objectId,
-      String name,
-      String hiragana,
-      String roman});
+  $Res call({String name, String hiragana, String roman});
 }
 
 /// @nodoc
@@ -110,16 +95,11 @@ class __$$_PrefectureCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? objectId = null,
     Object? name = null,
     Object? hiragana = null,
     Object? roman = null,
   }) {
     return _then(_$_Prefecture(
-      objectId: null == objectId
-          ? _value.objectId
-          : objectId // ignore: cast_nullable_to_non_nullable
-              as String,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -140,18 +120,12 @@ class __$$_PrefectureCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Prefecture extends _Prefecture {
   const _$_Prefecture(
-      {@JsonKey(name: 'objectID') required this.objectId,
-      required this.name,
-      required this.hiragana,
-      required this.roman})
+      {required this.name, required this.hiragana, required this.roman})
       : super._();
 
   factory _$_Prefecture.fromJson(Map<String, dynamic> json) =>
       _$$_PrefectureFromJson(json);
 
-  @override
-  @JsonKey(name: 'objectID')
-  final String objectId;
   @override
   final String name;
   @override
@@ -161,7 +135,7 @@ class _$_Prefecture extends _Prefecture {
 
   @override
   String toString() {
-    return 'Prefecture(objectId: $objectId, name: $name, hiragana: $hiragana, roman: $roman)';
+    return 'Prefecture(name: $name, hiragana: $hiragana, roman: $roman)';
   }
 
   @override
@@ -169,8 +143,6 @@ class _$_Prefecture extends _Prefecture {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Prefecture &&
-            (identical(other.objectId, objectId) ||
-                other.objectId == objectId) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.hiragana, hiragana) ||
                 other.hiragana == hiragana) &&
@@ -179,7 +151,7 @@ class _$_Prefecture extends _Prefecture {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, objectId, name, hiragana, roman);
+  int get hashCode => Object.hash(runtimeType, name, hiragana, roman);
 
   @JsonKey(ignore: true)
   @override
@@ -197,8 +169,7 @@ class _$_Prefecture extends _Prefecture {
 
 abstract class _Prefecture extends Prefecture {
   const factory _Prefecture(
-      {@JsonKey(name: 'objectID') required final String objectId,
-      required final String name,
+      {required final String name,
       required final String hiragana,
       required final String roman}) = _$_Prefecture;
   const _Prefecture._() : super._();
@@ -206,9 +177,6 @@ abstract class _Prefecture extends Prefecture {
   factory _Prefecture.fromJson(Map<String, dynamic> json) =
       _$_Prefecture.fromJson;
 
-  @override
-  @JsonKey(name: 'objectID')
-  String get objectId;
   @override
   String get name;
   @override

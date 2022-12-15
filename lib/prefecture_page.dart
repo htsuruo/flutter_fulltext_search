@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_fulltext_search/search_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'search_bar/search_bar.dart';
+import 'component/search_bar/search_bar.dart';
 
 class PrefecturePage extends ConsumerWidget {
   const PrefecturePage({super.key, required this.title});
@@ -38,7 +38,7 @@ class PrefecturePage extends ConsumerWidget {
                           subtitle: Text(
                             '${prefecture.hiragana} / ${prefecture.roman}',
                           ),
-                          trailing: Text(prefecture.objectId),
+                          // trailing: Text(prefecture.objectId),
                         );
                       },
                     );

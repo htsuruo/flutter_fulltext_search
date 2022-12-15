@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_fulltext_search/meilisearch_page.dart';
 import 'package:flutter_fulltext_search/search_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -21,6 +22,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: _title,
       theme: ThemeData(
         useMaterial3: true,
@@ -76,12 +78,7 @@ class _HomePage extends StatelessWidget {
             onTap: () {
               Navigator.of(context).push<void>(
                 MaterialPageRoute(
-                  builder: (context) => ProviderScope(
-                    overrides: [
-                      searchProvider.overrideWithProvider(meilisearchProvider),
-                    ],
-                    child: const PrefecturePage(title: 'Meilisearch'),
-                  ),
+                  builder: (context) => const MeilisearchPage(),
                 ),
               );
             },
