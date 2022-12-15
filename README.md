@@ -2,6 +2,10 @@
 
 Full-text search playground with Flutter and Firestore.
 
+| DEMO |
+| --- |
+| ![search_result_with_dart_sdk](https://user-images.githubusercontent.com/12729025/207903036-9ec42d1f-fec7-47bf-99f8-c317af4065aa.gif) |
+
 ## Getting Started
 
 APIキーを参照するため、以下の `env.dart` を作成し `\lib` に配置してください（.gitignore対象です）。
