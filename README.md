@@ -1,4 +1,4 @@
-# flutter_fulltext_search
+# Flutter Full-Text Search
 
 Full-text search playground with Flutter and Firestore.
 
